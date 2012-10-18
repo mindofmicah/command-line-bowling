@@ -41,5 +41,8 @@ class Game
 		}
 
 		$this->frames[$this->currentFrame]->addRoll($rollAmount);
+		if ($this->frames[$this->currentFrame]->getIsFull()) {
+			$this->currentFrame++;
+		}
 	}
 }
