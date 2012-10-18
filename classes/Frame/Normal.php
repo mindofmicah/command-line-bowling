@@ -24,6 +24,15 @@ class Frame_Normal extends Frame
 
 	public function toDisplayRows()
 	{
-		return array('-----','  |  ','  +--','     ','-----');
+		$row2 = '';
+
+		for ($i = 0; $i < self::MAX_ROLLS; $i++) {
+			if (array_key_exists($i, $this->rolls)) {
+				$row2.= '| ' . $this->rolls[$i];
+			} else {
+				$row2.= '|  ';
+			}
+		}
+		return array('-----', substr($row2,1),'  +--','     ','-----');
 	}
 }
