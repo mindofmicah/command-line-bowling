@@ -1,8 +1,10 @@
 <?php
-class Frame
+abstract class Frame
 {
 	protected $number, $rolls = array(), $score = 0;
 	
+	abstract public function addRoll($value);
+
 	public static function factory($frameNumber)
 	{
 		$frameNumber = intval($frameNumber);
