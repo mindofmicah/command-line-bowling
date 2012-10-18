@@ -1,12 +1,13 @@
 <?php
 class Game
 {
-	protected $frames = array();
+	protected $frames = array(), $currentFrame;
 	public function __construct()
 	{
 		for ($i = 1; $i <=10; $i++) {
 			$this->frames[] = Frame::factory($i);
 		}
+		$this->currentFrame = 0;
 	}
 
 	public function displayScoreBoard() {
