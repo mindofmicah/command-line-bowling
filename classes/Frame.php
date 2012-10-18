@@ -1,10 +1,11 @@
 <?php
 abstract class Frame
 {
-	protected $number, $rolls = array(), $score = 0;
+	protected $number, $rolls = array(), $score = 0, $isFull = false;
 	
 	abstract public function addRoll($value);
 
+	public function getIsFull(){return $this->isFull;}
 	public static function factory($frameNumber)
 	{
 		$frameNumber = intval($frameNumber);
