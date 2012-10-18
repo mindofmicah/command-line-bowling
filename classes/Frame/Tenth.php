@@ -5,4 +5,15 @@ class Frame_Tenth extends Frame
 	{
 		$this->number = 10;
 	}
+
+	public function toDisplayRows()
+	{
+		return array(
+			'--------',
+			'  |  |  ',
+			'  +--+--',
+			'        ',
+			'--------'
+		);
+	}
 }

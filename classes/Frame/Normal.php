@@ -5,4 +5,9 @@ class Frame_Normal extends Frame
 	{
 		$this->number = $number;
 	}
+
+	public function toDisplayRows()
+	{
+		return array('-----','  |  ','  +--','     ','-----');
+	}
 }
