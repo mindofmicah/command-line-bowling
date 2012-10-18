@@ -3,5 +3,6 @@ require 'autoload.php';
 
 $game = new Game();
 
+echo $game->displayScoreBoard();
 
-print_r($game);
+#print_r($game);
