@@ -9,8 +9,17 @@ class Frame_Normal extends Frame
 			throw new Exception('Cannot and roll');
 		}
 
-		$this->rolls[] = $number;
-
+		if (count($this->rolls) == 1) {
+			if ($this->rolls[0] + $number > 10) {
+				throw new Exception('cannot add roll');
+			} elseif ($this->rolls[0] + $number == 10) {
+				$this->rolls[] = '/';
+			} else {
+				$this->rolls[] = $number;
+			}
+		} else {
+			$this->rolls[] = $number;
+		}
 		if(count($this->rolls) == self::MAX_ROLLS) {
 			$this->isFull = true;
 		}
