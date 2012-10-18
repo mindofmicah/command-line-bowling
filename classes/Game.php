@@ -1,14 +1,17 @@
 <?php
 class Game
 {
-	protected $frames = array(), $currentFrame;
+	protected $frames = array(), $currentFrame, $active;
 	public function __construct()
 	{
 		for ($i = 1; $i <=10; $i++) {
 			$this->frames[] = Frame::factory($i);
 		}
 		$this->currentFrame = 0;
+		$this->active = true;
 	}
+
+	public function getActive(){return $this->active;}
 
 	public function displayScoreBoard() {
 
@@ -43,6 +46,10 @@ class Game
 		$this->frames[$this->currentFrame]->addRoll($rollAmount);
 		if ($this->frames[$this->currentFrame]->getIsFull()) {
 			$this->currentFrame++;
+
+			if ($this->currentFrame == count($this->frames) - 1) {
+				$this->active = false;
+			}
 		}
 	}
 }
