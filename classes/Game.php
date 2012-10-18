@@ -31,4 +31,15 @@ class Game
 		}
 		return $ret;
 	}
+
+	public function addRoll($rollAmount)
+	{
+		$rollAmount = preg_replace(array('%x%i','%[\D]%'), array('10',''), $rollAmount);
+
+		if (empty($rollAmount[0]) || $rollAmount < 0) {
+			return false;
+		}
+
+		$this->frames[$this->currentFrame]->addRoll($rollAmount);
+	}
 }
