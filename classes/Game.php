@@ -1,7 +1,7 @@
 <?php
 class Game
 {
-	protected $frames = array(), $currentFrame, $active;
+	protected $frames = array(), $currentFrame, $active, $score;
 	public function __construct()
 	{
 		for ($i = 1; $i <=10; $i++) {
@@ -44,6 +44,10 @@ class Game
 		}
 
 		$this->frames[$this->currentFrame]->addRoll($rollAmount);
+
+		$this->score+= $rollAmount;
+		$this->frames[$this->currentFrame]->setScore($this->score);
+
 		if ($this->frames[$this->currentFrame]->getIsFull()) {
 			$this->currentFrame++;
 
