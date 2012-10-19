@@ -4,7 +4,13 @@ require 'autoload.php';
 $game = new Game();
 
 while ($game->getActive()) {
-	$game->addRoll(4);
+	try {
+		$game->addRoll(10);
+	} catch (Exception $e) {
+		break;
+		print_r($e);
+		die();
+	}
 }
 
 echo $game->displayScoreBoard();
