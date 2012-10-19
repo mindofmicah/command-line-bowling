@@ -5,22 +5,28 @@ class Frame_Normal extends Frame
 
 	public function addRoll($number)
 	{
+		$this->isSpare = false;
 		if(count($this->rolls) == self::MAX_ROLLS) {
 			throw new Exception('Cannot and roll');
 		}
-
+	
 		if (count($this->rolls) == 1) {
 			if ($this->rolls[0] + $number > 10) {
 				throw new Exception('cannot add roll');
 			} elseif ($this->rolls[0] + $number == 10) {
 				$this->rolls[] = '/';
+				$this->isSpare = true;
 			} else {
 				$this->rolls[] = $number;
 			}
 		} else {
 			$this->rolls[] = $number;
 		}
-
+		if($number == 10) {
+			$this->isStrike = true;
+		} else {
+			$this->isStrike = false;
+		}
 		if(count($this->rolls) == self::MAX_ROLLS || $number == 10) {
 			$this->isFull = true;
 		}
