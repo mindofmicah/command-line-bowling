@@ -20,7 +20,8 @@ class Frame_Normal extends Frame
 		} else {
 			$this->rolls[] = $number;
 		}
-		if(count($this->rolls) == self::MAX_ROLLS) {
+
+		if(count($this->rolls) == self::MAX_ROLLS || $number == 10) {
 			$this->isFull = true;
 		}
 	}
