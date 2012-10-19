@@ -35,7 +35,7 @@ class Frame_Normal extends Frame
 		$row3 = '';
 		for ($i = 0; $i < self::MAX_ROLLS; $i++) {
 			if (array_key_exists($i, $this->rolls)) {
-				$row2.= '| ' . $this->rolls[$i];
+				$row2.= '| ' . ($this->rolls[$i] == 10 ? 'X' : $this->rolls[$i]);
 			} else {
 				$row2.= '|  ';
 			}
