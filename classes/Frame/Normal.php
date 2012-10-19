@@ -23,8 +23,6 @@ class Frame_Normal extends Frame
 		if(count($this->rolls) == self::MAX_ROLLS) {
 			$this->isFull = true;
 		}
-
-		echo 'trying to add ' . $number . " to a normal frame ($this->number)\n";
 	}
 	public function __construct($number)
 	{
@@ -44,6 +42,13 @@ class Frame_Normal extends Frame
 			if($i > 0)
 			$row3 .= '+--';
 		}
-		return array('-----', substr($row2,1), '  ' . $row3,'     ','-----');
+
+		return array(
+			str_repeat('-', 2*self::MAX_ROLLS + 1), 
+			substr($row2,1), 
+			'  ' . $row3, 
+			str_pad($this->displayedScore,(2*self::MAX_ROLLS + 1),' ', STR_PAD_LEFT),
+			str_repeat('-', 2*self::MAX_ROLLS+1)
+		);
 	}
 }
